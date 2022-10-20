@@ -20,14 +20,15 @@ namespace WebApp.Web.Controllers
         }
 
         // GET: api/Account
-        [HttpGet]
         [Authorize]
+        [HttpGet]
         public async Task<IEnumerable<UserModel>> Get()
         {
             return await _userService.GetAllAsync();
         }
 
         // GET api/Account/{id}
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<UserModel?> Get(int id)
         {
@@ -54,6 +55,7 @@ namespace WebApp.Web.Controllers
         }
 
         // PUT api/Account
+        [Authorize]
         [HttpPut]
         public async Task Put([FromBody] UserModel userModel)
         {
@@ -61,6 +63,7 @@ namespace WebApp.Web.Controllers
         }
 
         // DELETE api/Account/{id}
+        [Authorize]
         [HttpDelete("{id}")]
         public async void Delete(int id)
         {
